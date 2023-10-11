@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SliceZone } from "@prismicio/react";
+import { SliceZone, PrismicRichText, PrismicImage } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../prismicio";
@@ -24,8 +24,9 @@ const Page = ({ page, navigation, settings }) => {
         <meta property="og:description" content={settings.data.description} />
         {/* <meta property="og:image" content={settings.data.image.url} /> */}
       </Head>
-      <h2 className="page-title">{prismicH.asText(page.data.title)}</h2>
       <div className={`container page`}>
+        <h1 className="title">{prismicH.asText(page.data.title)}</h1>
+        <div className="text"><PrismicRichText field={page.data.text}/></div>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Layout>

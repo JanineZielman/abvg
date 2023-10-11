@@ -1,0 +1,49 @@
+$purple: rgb(69,63,144);
+$white: #fff;
+
+body{
+  color: $purple;
+  font-family: 'Gill Sans';
+}
+
+.projects{
+  width: 500px;
+  margin: auto;
+  .project{
+    display: flex;
+    margin-bottom: 24px;
+    .info{
+      width: 100%;
+      text-align: right;
+      margin-right: 14px;
+      margin-left: calc(50% - 500px);
+    }
+    p{
+      margin: 0;
+    }
+    .title{
+      font-weight: 500;
+    }
+    .location{
+      font-weight: 100;
+    }
+    img{
+      width: 500px;
+      min-width: 500px;
+      height: auto;
+    }
+  }
+}
+
+.page{
+  max-width: 1400px;
+  margin: auto;
+  h1{
+    font-size: 48px;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+  .text{
+    
+  }
+}

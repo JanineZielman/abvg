@@ -4,9 +4,10 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 import Link from "next/link";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicRichText, PrismicImage } from "@prismicio/react";
 
-const Index = ({ navigation, settings, page }) => {
+const Index = ({ navigation, settings, page, projects}) => {
+  console.log(projects)
   return (
     <Layout
       alternateLanguages={settings.alternate_languages}
@@ -22,7 +23,17 @@ const Index = ({ navigation, settings, page }) => {
         {/* <meta property="og:image" content={settings.data.image.url} /> */}
       </Head>
       <div className="container projects">
-       hello
+       {projects.map((item, i) => {
+        return(
+          <div key={`project${i}`} className="project">
+            <div className="info">
+              <p className="title">{item.data.title}</p>
+              <p className="location">{item.data.location}</p>
+            </div>
+            <PrismicImage field={item.data.image}/>
+          </div>
+        )
+       })}
       </div>
     </Layout>
   );
@@ -30,17 +41,15 @@ const Index = ({ navigation, settings, page }) => {
 
 export default Index;
 
-export async function getStaticProps({ locale, previewData }) {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
-  // const events = await client.getAllByType("event", { 
-  //   lang: locale,
-  //   orderings: {
-	// 		field: 'my.event.date',
-	// 		direction: 'asc',
-	// 	},
-  //   fetchLinks: 'location.title category.title'
-  // });
+  const projects = await client.getAllByType("project", { 
+    // orderings: {
+		// 	field: 'my.event.date',
+		// 	direction: 'asc',
+		// },
+  });
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
   const page = await client.getByUID("page", "projecten");
@@ -50,7 +59,8 @@ export async function getStaticProps({ locale, previewData }) {
     props: {
       navigation,
       settings,
-      page
+      page,
+      projects
     },
   };
 }

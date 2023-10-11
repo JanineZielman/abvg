@@ -26,23 +26,11 @@ export const linkResolver = (doc) => {
       return `/${doc.uid}`;
     }
   }
-  // if (doc.type === "archive") {
-  //   return `/${doc.lang}/archive`;
-  // }
-  // if (doc.type === "news") {
-  //   return `/${doc.lang}/news`;
-  // }
-  // if (doc.type === "event") {
-  //   return `/${doc.lang}/events/${doc.uid}`;
-  // }
-  // if (doc.type === "location") {
-  //   return `${doc.lang}/location/${doc.uid}`;
-  // }
-  // if (doc.type === "category") {
-  //   return `${doc.lang}/category/${doc.uid}`;
-  // }
+  if (doc.type === "project") {
+    return `/project/${doc.uid}`;
+  }
 
-  return `/${doc.lang}`;
+  return `/`;
 };
 
 /**
