@@ -90,7 +90,8 @@
     },
     "Image": {
       "default": {
-        "primary": {}
+        "primary": {},
+        "items": {}
       }
     },
     "LogoAnimation": {
@@ -118,6 +119,18 @@
     "Newsletter": {
       "default": {
         "primary": {}
+      }
+    },
+    "Columns": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Images": {
+      "default": {
+        "primary": {},
+        "items": {}
       }
     }
   }

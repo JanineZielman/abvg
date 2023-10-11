@@ -29,6 +29,23 @@
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item,rtl"
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "columns": {
+              "type": "SharedSlice"
+            },
+            "image": {
+              "type": "SharedSlice"
+            },
+            "images": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

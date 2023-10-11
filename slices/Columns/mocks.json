@@ -1,0 +1,42 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "anyone",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "column",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Officia ullamco ut duis magna consequat irure."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "quote",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "last",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

@@ -20,7 +20,7 @@ const Index = ({ navigation, settings, page, projects}) => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={prismicH.asText(settings.data.siteTitle)} />
         <meta property="og:description" content={settings.data.description} />
-        {/* <meta property="og:image" content={settings.data.image.url} /> */}
+        <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <div className="container projects">
        {projects.map((item, i) => {
