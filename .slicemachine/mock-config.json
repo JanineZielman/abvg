@@ -1,0 +1,123 @@
+{
+  "_cts": {
+    "navigation": {
+      "links": {
+        "label": {
+          "config": {
+            "patternType": "HEADING",
+            "blocks": 1
+          }
+        }
+      }
+    },
+    "page": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
+    "article": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
+    "settings": {
+      "siteTitle": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
+    "event": {},
+    "location": {},
+    "category": {},
+    "archive": {},
+    "news_item": {},
+    "news": {},
+    "tag": {}
+  },
+  "slices": {
+    "Text": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Quote": {
+      "default": {
+        "primary": {
+          "quote": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "ContactForm": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "TextBlock": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "EventInfo": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Embed": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Image": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "LogoAnimation": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ImageText": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Partners": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "SocialMedia": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Newsletter": {
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}
