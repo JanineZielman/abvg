@@ -1,36 +1,26 @@
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
-import Link from "next/link";
-
-import { linkResolver } from "../prismicio";
 
 export const Header = ({ alternateLanguages = [], navigation, settings }) => {
 
-  // function toggleMenu() {
-  //   var element = document.getElementById("navItems");
-  //   element.classList.toggle("active");
-  // }
+  function toggleMenu() {
+    var element = document.getElementById("navItems");
+    element.classList.toggle("active");
+  }
 
   return (
     <header>
-      {/* <div className="navigation">
-        <div className="socials">
-          {settings.data.slices?.[1]?.items?.map((item, i) => {
-            return(
-              <PrismicLink field={item.link} key={`socials${i}`}>
-                <PrismicNextImage field={item.icon}/>
-              </PrismicLink>
-            )
-          })}
+      <div className="navigation">
+        <div className="menu" onClick={toggleMenu}>
+          <div className="logo">
+            {prismicH.isFilled.image(settings.data.logo) && (
+              <PrismicNextImage field={settings.data.logo} alt="logo"/>
+            )}
+          </div>
+          <img className="menu-icon" src="/menu.svg"/> 
         </div>
-        <Link className="logo" href={`/${settings.lang}`}>
-          {prismicH.isFilled.image(settings.data.logo) && (
-            <PrismicNextImage field={settings.data.logo} alt="logo"/>
-          )}
-        </Link>
-        <img className="menu-icon" onClick={toggleMenu} src="/menu.svg"/>
-        <nav id="navItems">
+        <nav id="navItems" onClick={toggleMenu}>
           {navigation.data?.links.map((item) => (
             <div
               key={prismicH.asText(item.label)}
@@ -41,17 +31,8 @@ export const Header = ({ alternateLanguages = [], navigation, settings }) => {
               </PrismicLink>
             </div>
           ))}
-          <div className="socials">
-            {settings.data.slices?.[1]?.items?.map((item, i) => {
-              return(
-                <PrismicLink field={item.link} key={`socialsmob${i}`}>
-                  <PrismicNextImage field={item.icon}/>
-                </PrismicLink>
-              )
-            })}
-          </div>
         </nav>
-      </div> */}
+      </div>
     </header>
   );
 };

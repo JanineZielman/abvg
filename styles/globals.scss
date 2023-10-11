@@ -1,9 +1,78 @@
-$purple: rgb(69,63,144);
+$purple: #3F387B;
 $white: #fff;
+
+$body: 18px;
+$small: 14px;
 
 body{
   color: $purple;
   font-family: 'Gill Sans';
+}
+
+header{
+  height: 60px;
+}
+
+.navigation{
+  .menu{
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    .logo{
+      position: absolute;
+      height: 100%;
+      transition: all 0.4s ease;
+    }
+    .menu-icon{
+      position: absolute;
+      opacity: 0;
+      transform: scaleY(0);
+      transition: all 0.4s ease;
+    }
+    &:hover{
+      .menu-icon{
+        opacity: 1;
+        transform: scaleY(1);
+      }
+      .logo{
+        opacity: 0;
+        transform: scaleY(0);
+      }
+    }
+  }
+}
+
+nav{
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  background-color: white;
+  padding: 14px;
+  transition: all 0.4s ease;
+  &.active{
+    opacity: 1;
+    left: 0;
+  }
+  .menu-link{
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: $small;
+    a{
+      text-decoration: none;
+      color: $purple;
+    }
+  }
 }
 
 .projects{
