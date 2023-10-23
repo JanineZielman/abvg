@@ -1,6 +1,7 @@
 $purple: #3F387B;
 $white: #fff;
 
+$title: 24px;
 $sub: 20px;
 $body: 18px;
 $small: 14px;
@@ -27,6 +28,11 @@ p{
   font-weight: 100;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 img{
   border: 1px solid $purple;
 }
@@ -51,6 +57,7 @@ img{
     height: 30px;
     width: 80px;
     cursor: pointer;
+    z-index: 3;
     img{
       width: 100%;
       height: 100%;
@@ -90,6 +97,7 @@ nav{
   background-color: white;
   padding: 14px;
   transition: all 0.4s ease;
+  z-index: 999;
   &.active{
     opacity: 1;
     left: 0;
@@ -103,6 +111,25 @@ nav{
       text-decoration: none;
       color: $purple;
     }
+  }
+}
+
+
+.themeMenu{
+  display: flex;
+  position: fixed;
+  top: 0;
+  padding: 14px 0 14px 0;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  background-color: white;
+  a{
+    margin: 0 24px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: $purple;
+    font-size: $title;
   }
 }
 

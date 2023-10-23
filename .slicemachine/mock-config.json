@@ -41,7 +41,9 @@
     "news_item": {},
     "news": {},
     "tag": {},
-    "project": {}
+    "project": {},
+    "theme": {},
+    "theme_menu": {}
   },
   "slices": {
     "Text": {
@@ -131,6 +133,11 @@
       "default": {
         "primary": {},
         "items": {}
+      }
+    },
+    "ThemeMenu": {
+      "default": {
+        "primary": {}
       }
     }
   }

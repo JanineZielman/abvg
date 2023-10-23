@@ -35,6 +35,16 @@
           },
           "thumbnails": []
         }
+      },
+      "theme": {
+        "type": "Link",
+        "config": {
+          "label": "Theme",
+          "select": "document",
+          "customtypes": [
+            "theme"
+          ]
+        }
       }
     }
   }

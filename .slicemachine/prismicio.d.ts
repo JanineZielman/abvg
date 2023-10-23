@@ -142,6 +142,17 @@ interface ProjectDocumentData {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Theme field in *Project*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.theme
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    theme: prismicT.RelationField<"theme">;
 }
 /**
  * Project document from Prismic
@@ -210,7 +221,60 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = NavigationDocument | PageDocument | ProjectDocument | SettingsDocument;
+/** Content for Theme Menu documents */
+interface ThemeMenuDocumentData {
+    /**
+     * Slice Zone field in *Theme Menu*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: theme_menu.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<ThemeMenuDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Theme Menu → Slice Zone*
+ *
+ */
+type ThemeMenuDocumentDataSlicesSlice = ThemeMenuSlice;
+/**
+ * Theme Menu document from Prismic
+ *
+ * - **API ID**: `theme_menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ThemeMenuDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ThemeMenuDocumentData>, "theme_menu", Lang>;
+/** Content for Theme documents */
+interface ThemeDocumentData {
+    /**
+     * Title field in *Theme*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: theme.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Theme document from Prismic
+ *
+ * - **API ID**: `theme`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ThemeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ThemeDocumentData>, "theme", Lang>;
+export type AllDocumentTypes = NavigationDocument | PageDocument | ProjectDocument | SettingsDocument | ThemeMenuDocument | ThemeDocument;
 /**
  * Primary content in Columns → Primary
  *
@@ -374,11 +438,66 @@ type ImagesSliceVariation = ImagesSliceDefault;
  *
  */
 export type ImagesSlice = prismicT.SharedSlice<"images", ImagesSliceVariation>;
+/**
+ * Primary content in ThemeMenu → Primary
+ *
+ */
+interface ThemeMenuSliceDefaultPrimary {
+    /**
+     * Theme field in *ThemeMenu → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: theme_menu.primary.theme
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    theme: prismicT.LinkField;
+}
+/**
+ * Item in ThemeMenu → Items
+ *
+ */
+export interface ThemeMenuSliceDefaultItem {
+    /**
+     * Sub Theme field in *ThemeMenu → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: theme_menu.items[].sub_theme
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    sub_theme: prismicT.LinkField;
+}
+/**
+ * Default variation for ThemeMenu Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `ThemeMenu`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ThemeMenuSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ThemeMenuSliceDefaultPrimary>, Simplify<ThemeMenuSliceDefaultItem>>;
+/**
+ * Slice variation for *ThemeMenu*
+ *
+ */
+type ThemeMenuSliceVariation = ThemeMenuSliceDefault;
+/**
+ * ThemeMenu Shared Slice
+ *
+ * - **API ID**: `theme_menu`
+ * - **Description**: `ThemeMenu`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ThemeMenuSlice = prismicT.SharedSlice<"theme_menu", ThemeMenuSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, ColumnsSliceDefaultPrimary, ColumnsSliceDefaultItem, ColumnsSliceDefault, ColumnsSliceVariation, ColumnsSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, ImagesSliceDefaultItem, ImagesSliceDefault, ImagesSliceVariation, ImagesSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocument, SettingsDocumentData, SettingsDocument, ThemeMenuDocumentData, ThemeMenuDocumentDataSlicesSlice, ThemeMenuDocument, ThemeDocumentData, ThemeDocument, AllDocumentTypes, ColumnsSliceDefaultPrimary, ColumnsSliceDefaultItem, ColumnsSliceDefault, ColumnsSliceVariation, ColumnsSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, ImagesSliceDefaultItem, ImagesSliceDefault, ImagesSliceVariation, ImagesSlice, ThemeMenuSliceDefaultPrimary, ThemeMenuSliceDefaultItem, ThemeMenuSliceDefault, ThemeMenuSliceVariation, ThemeMenuSlice };
     }
 }

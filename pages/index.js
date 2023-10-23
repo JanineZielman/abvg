@@ -4,10 +4,11 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 import Link from "next/link";
-import { PrismicRichText, PrismicImage } from "@prismicio/react";
+import { PrismicRichText, PrismicImage, PrismicLink } from "@prismicio/react";
+import { ThemeMenu } from "../components/ThemeMenu";
+import { Projects } from "../components/Projects";
 
-const Index = ({ navigation, settings, page, projects}) => {
-  console.log(projects)
+const Index = ({ navigation, settings, page, projects, themeMenu}) => {
   return (
     <Layout
       alternateLanguages={settings.alternate_languages}
@@ -22,19 +23,8 @@ const Index = ({ navigation, settings, page, projects}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className="container projects">
-       {projects.map((item, i) => {
-        return(
-          <div key={`project${i}`} className="project">
-            <div className="info">
-              <p className="title">{item.data.title}</p>
-              <p className="location">{item.data.location}</p>
-            </div>
-            <PrismicImage field={item.data.image}/>
-          </div>
-        )
-       })}
-      </div>
+      <ThemeMenu themeMenu={themeMenu}/>
+      <Projects projects={projects}/>
     </Layout>
   );
 };
@@ -43,6 +33,7 @@ export default Index;
 
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
+  const prismic = require("@prismicio/client");
 
   const projects = await client.getAllByType("project", { 
     // orderings: {
@@ -50,6 +41,7 @@ export async function getStaticProps({ previewData }) {
 		// 	direction: 'asc',
 		// },
   });
+  const themeMenu = await client.getSingle("theme_menu");
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
   const page = await client.getByUID("page", "projecten");
@@ -60,7 +52,8 @@ export async function getStaticProps({ previewData }) {
       navigation,
       settings,
       page,
-      projects
+      projects,
+      themeMenu
     },
   };
 }
