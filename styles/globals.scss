@@ -130,6 +130,9 @@ nav{
     text-decoration: none;
     color: $purple;
     font-size: $title;
+    &.true{
+      font-weight: 700;
+    }
   }
 }
 
