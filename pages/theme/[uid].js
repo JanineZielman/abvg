@@ -31,7 +31,7 @@ const Page = ({ page, navigation, settings, themeMenu, projects }) => {
       <div className="sub-menu">
         {page.data.sub_themes.map((item,i) => {
           return(
-            <PrismicLink field={item.sub_theme}>{item.sub_theme.uid}</PrismicLink>
+            <PrismicLink key={`subtheme${i}`} field={item.sub_theme}>{item.sub_theme.uid}</PrismicLink>
           )
         })}
       </div>
