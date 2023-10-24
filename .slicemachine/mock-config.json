@@ -41,7 +41,9 @@
     "news_item": {},
     "news": {},
     "tag": {},
-    "project": {},
+    "project": {
+      "images": {}
+    },
     "theme": {},
     "theme_menu": {}
   },

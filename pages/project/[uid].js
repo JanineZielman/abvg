@@ -26,8 +26,24 @@ const Page = ({ page, navigation, settings, themeMenu }) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <ThemeMenu themeMenu={themeMenu}/>
-      <div className={`container page`}>
-        <SliceZone slices={page.data.slices} components={components} />
+      <div className={`container projects`}>
+        <div className={`project active`}>
+          <div className="info">
+            <p className="title">{page.data.title}</p>
+            <p className="location">{page.data.location}</p>
+          </div>
+          <PrismicImage field={page.data.image}/>
+          <div className="description">
+            <PrismicRichText field={page.data.description}/>
+          </div>
+          <div className="images">
+            {page.data.images?.map((imageItem, j) => {
+              return(
+                <PrismicImage key={`image${j}`} field={imageItem.image}/>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </Layout>
   );

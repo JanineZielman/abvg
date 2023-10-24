@@ -1,5 +1,4 @@
-import { PrismicImage } from "@prismicio/react";
-import Link from "next/link";
+import { PrismicImage, PrismicRichText } from "@prismicio/react";
 
 export const Projects = ({
   projects
@@ -7,15 +6,28 @@ export const Projects = ({
   return (
     <div className="container projects">
       {projects.map((item, i) => {
-      return(
-        <Link href={`/project/${item.uid}`} key={`project${i}`} className={`project`}>
-          <div className="info">
-            <p className="title">{item.data.title}</p>
-            <p className="location">{item.data.location}</p>
+        function toggle(){
+          document.getElementById(item.uid).classList.toggle("active");
+        }
+        return(
+          <div key={`project${i}`} className={`project`} onClick={toggle} id={item.uid}>
+            <div className="info">
+              <p className="title">{item.data.title}</p>
+              <p className="location">{item.data.location}</p>
+            </div>
+            <PrismicImage field={item.data.image}/>
+            <div className="description">
+              <PrismicRichText field={item.data.description}/>
+            </div>
+            <div className="images">
+              {item.data.images.map((imageItem, j) => {
+                return(
+                  <PrismicImage key={`image${j}`} field={imageItem.image}/>
+                )
+              })}
+            </div>
           </div>
-          <PrismicImage field={item.data.image}/>
-        </Link>
-      )
+        )
       })}
     </div>
   );

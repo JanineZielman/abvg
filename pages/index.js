@@ -3,8 +3,6 @@ import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
-import Link from "next/link";
-import { PrismicRichText, PrismicImage, PrismicLink } from "@prismicio/react";
 import { ThemeMenu } from "../components/ThemeMenu";
 import { Projects } from "../components/Projects";
 
