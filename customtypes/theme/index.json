@@ -18,6 +18,24 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "sub_themes": {
+        "type": "Group",
+        "config": {
+          "label": "Sub Themes",
+          "fields": {
+            "sub_theme": {
+              "type": "Link",
+              "config": {
+                "label": "Sub Theme",
+                "select": "document",
+                "customtypes": [
+                  "theme"
+                ]
+              }
+            }
+          }
+        }
       }
     }
   }

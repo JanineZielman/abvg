@@ -11,6 +11,10 @@ body{
   font-family: 'Gill Sans';
 }
 
+*{
+  box-sizing: border-box;
+}
+
 header{
   height: 60px;
 }
@@ -136,8 +140,31 @@ nav{
   }
 }
 
+.sub-menu{
+  display: flex;
+  position: fixed;
+  top: 50px;
+  padding: 0 0 10px 0;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  background-color: white;
+  a{
+    margin: 0 24px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: $purple;
+    font-size: $sub;
+    &.true{
+      font-weight: 700;
+    }
+  }
+}
+
 .projects{
   width: 100%;
+  margin-top: 48px;
+  overflow-x: hidden;
 }
 
 .project{

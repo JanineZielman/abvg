@@ -1,11 +1,31 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "load"
+    "value": "current"
   },
   "title": {
     "__TYPE__": "FieldContent",
-    "value": "too",
+    "value": "rod",
     "type": "Text"
+  },
+  "sub_themes": {
+    "__TYPE__": "GroupContentType",
+    "value": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "sub_theme",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
   }
 }

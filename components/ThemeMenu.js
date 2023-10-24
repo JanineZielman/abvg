@@ -7,11 +7,11 @@ export const ThemeMenu = ({
   const router = useRouter()
   return (
     <div className="themeMenu">
-      {themeMenu.data.slices.map((item, i) => {
-        let active = router.query.uid == item.primary.theme.uid;
+      {themeMenu.data.themes.map((item, i) => {
+        let active = router.query.uid == item.theme.uid;
         return(
-          <PrismicLink key={`themeMenu${i}`} field={item.primary.theme} className={`${active}`}>
-            {item.primary.theme.uid}
+          <PrismicLink key={`themeMenu${i}`} field={item.theme} className={`${active}`}>
+            {item.theme.uid}
           </PrismicLink>
         )
       })}

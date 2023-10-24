@@ -5,15 +5,27 @@
   "status": true,
   "json": {
     "Main": {
+      "themes": {
+        "type": "Group",
+        "config": {
+          "label": "Themes",
+          "fields": {
+            "theme": {
+              "type": "Link",
+              "config": {
+                "label": "Theme",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "theme_menu": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     }

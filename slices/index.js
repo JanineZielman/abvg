@@ -3,18 +3,15 @@
 import Columns from './Columns';
 import Image from './Image';
 import Images from './Images';
-import ThemeMenu from './ThemeMenu';
 
 export {
 	Columns,
 	Image,
 	Images,
-	ThemeMenu,
 };
 
 export const components = {
 	columns: Columns,
 	image: Image,
 	images: Images,
-	theme_menu: ThemeMenu,
 };

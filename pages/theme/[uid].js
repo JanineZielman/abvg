@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SliceZone, PrismicRichText, PrismicImage } from "@prismicio/react";
+import { SliceZone, PrismicRichText, PrismicImage, PrismicLink } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
@@ -28,6 +28,13 @@ const Page = ({ page, navigation, settings, themeMenu, projects }) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <ThemeMenu themeMenu={themeMenu}/>
+      <div className="sub-menu">
+        {page.data.sub_themes.map((item,i) => {
+          return(
+            <PrismicLink field={item.sub_theme}>{item.sub_theme.uid}</PrismicLink>
+          )
+        })}
+      </div>
       <Projects projects={projects}/>
     </Layout>
   );

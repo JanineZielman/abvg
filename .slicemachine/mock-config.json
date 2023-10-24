@@ -44,7 +44,9 @@
     "project": {
       "images": {}
     },
-    "theme": {},
+    "theme": {
+      "sub_themes": {}
+    },
     "theme_menu": {}
   },
   "slices": {
@@ -135,11 +137,6 @@
       "default": {
         "primary": {},
         "items": {}
-      }
-    },
-    "ThemeMenu": {
-      "default": {
-        "primary": {}
       }
     }
   }
