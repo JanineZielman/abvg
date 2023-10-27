@@ -46,6 +46,13 @@
           ]
         }
       },
+      "sub_theme": {
+        "type": "Link",
+        "config": {
+          "label": "Sub Theme",
+          "select": "document"
+        }
+      },
       "description": {
         "type": "StructuredText",
         "config": {
@@ -55,10 +62,10 @@
           "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
         }
       },
-      "images": {
+      "content": {
         "type": "Group",
         "config": {
-          "label": "Images",
+          "label": "Content",
           "fields": {
             "image": {
               "type": "Image",
@@ -68,6 +75,15 @@
                   "width": 1080
                 },
                 "thumbnails": []
+              }
+            },
+            "text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,hyperlink,strong,em,o-list-item,list-item"
               }
             }
           }

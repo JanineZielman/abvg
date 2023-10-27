@@ -42,7 +42,8 @@
     "news": {},
     "tag": {},
     "project": {
-      "images": {}
+      "images": {},
+      "content": {}
     },
     "theme": {
       "sub_themes": {}

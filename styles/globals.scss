@@ -49,7 +49,7 @@ img{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 50%;
+  height: 40%;
   padding: 14px 48px;
 }
 
@@ -193,7 +193,7 @@ nav{
     min-width: 500px;
     height: auto;
   }
-  .description, .images{
+  .description, .content{
     display: none;
   }
   &.active{
@@ -217,13 +217,22 @@ nav{
         margin-bottom: 14px;
       }
     }
-    .images{
+    .content{
       display: flex;
+      align-items:flex-start;
+      align-content:flex-start;
       img{
-        width: 600px;
-        min-width: 600px;
+        width: 100%;
         height: auto;
         max-height: 85vh;
+        display: inline-block;
+        margin-left: 24px;
+        object-fit: contain;
+      }
+      .text{
+        width: 300px;
+        min-width: 300px;
+        white-space: initial;
         display: inline-block;
         margin-left: 24px;
       }
@@ -241,6 +250,8 @@ nav{
     text-transform: uppercase;
   }
   .columns{
+    position: relative;
+    height: 100%;
     h2{
       width: 100%;
       font-weight: 100;
@@ -250,8 +261,12 @@ nav{
     .column{
       width: 32%;
       margin-right: 2%;
+      height: 100%;
       &:nth-child(3){
         margin-right: 0;
+      }
+      img{
+        margin: 48px;
       }
     }
     .title{

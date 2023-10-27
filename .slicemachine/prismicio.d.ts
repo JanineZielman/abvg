@@ -154,6 +154,17 @@ interface ProjectDocumentData {
      */
     theme: prismicT.RelationField<"theme">;
     /**
+     * Sub Theme field in *Project*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.sub_theme
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    sub_theme: prismicT.RelationField;
+    /**
      * Description field in *Project*
      *
      * - **Field Type**: Rich Text
@@ -165,16 +176,16 @@ interface ProjectDocumentData {
      */
     description: prismicT.RichTextField;
     /**
-     * Images field in *Project*
+     * Content field in *Project*
      *
      * - **Field Type**: Group
      * - **Placeholder**: *None*
-     * - **API ID Path**: project.images[]
+     * - **API ID Path**: project.content[]
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/group
      *
      */
-    images: prismicT.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
+    content: prismicT.GroupField<Simplify<ProjectDocumentDataContentItem>>;
     /**
      * Slice Zone field in *Project*
      *
@@ -188,20 +199,30 @@ interface ProjectDocumentData {
     slices: prismicT.SliceZone<ProjectDocumentDataSlicesSlice>;
 }
 /**
- * Item in Project → Images
+ * Item in Project → Content
  *
  */
-export interface ProjectDocumentDataImagesItem {
+export interface ProjectDocumentDataContentItem {
     /**
-     * Image field in *Project → Images*
+     * Image field in *Project → Content*
      *
      * - **Field Type**: Image
      * - **Placeholder**: *None*
-     * - **API ID Path**: project.images[].image
+     * - **API ID Path**: project.content[].image
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Text field in *Project → Content*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.content[].text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    text: prismicT.RichTextField;
 }
 /**
  * Slice for *Project → Slice Zone*
@@ -424,6 +445,16 @@ export interface ColumnsSliceDefaultItem {
      *
      */
     quote: prismicT.KeyTextField;
+    /**
+     * Image field in *Columns → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: columns.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
 }
 /**
  * Default variation for Columns Slice
@@ -551,6 +582,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataImagesItem, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocument, ThemeMenuDocumentData, ThemeMenuDocumentDataThemesItem, ThemeMenuDocumentDataSlicesSlice, ThemeMenuDocument, ThemeDocumentData, ThemeDocumentDataSubThemesItem, ThemeDocument, AllDocumentTypes, ColumnsSliceDefaultPrimary, ColumnsSliceDefaultItem, ColumnsSliceDefault, ColumnsSliceVariation, ColumnsSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, ImagesSliceDefaultItem, ImagesSliceDefault, ImagesSliceVariation, ImagesSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataContentItem, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocument, ThemeMenuDocumentData, ThemeMenuDocumentDataThemesItem, ThemeMenuDocumentDataSlicesSlice, ThemeMenuDocument, ThemeDocumentData, ThemeDocumentDataSubThemesItem, ThemeDocument, AllDocumentTypes, ColumnsSliceDefaultPrimary, ColumnsSliceDefaultItem, ColumnsSliceDefault, ColumnsSliceVariation, ColumnsSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, ImagesSliceDefaultItem, ImagesSliceDefault, ImagesSliceVariation, ImagesSlice };
     }
 }

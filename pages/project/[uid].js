@@ -36,10 +36,17 @@ const Page = ({ page, navigation, settings, themeMenu }) => {
           <div className="description">
             <PrismicRichText field={page.data.description}/>
           </div>
-          <div className="images">
-            {page.data.images?.map((imageItem, j) => {
+          <div className="content">
+            {item.data.content?.map((contentItem, j) => {
               return(
-                <PrismicImage key={`image${j}`} field={imageItem.image}/>
+                <>
+                  <PrismicImage key={`image${j}`} field={contentItem.image}/>
+                  {contentItem.text[0] &&
+                    <div className="text">
+                      <PrismicRichText field={contentItem.text}/>
+                    </div>
+                  }
+                </>
               )
             })}
           </div>

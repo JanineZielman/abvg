@@ -1,5 +1,5 @@
 import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicRichText, PrismicImage } from '@prismicio/react'
 
 
 const Columns = ({ slice }) => {
@@ -10,8 +10,15 @@ const Columns = ({ slice }) => {
       {slice.items.map((item, i) => {
         return(
           <div className='column'>
-            {item.column && <PrismicRichText field={item.column}/>}
-            {item.quote && <p className='quote'>{item.quote}</p>}
+            {item.column && 
+              <PrismicRichText field={item.column}/>
+            }
+            {item.quote && 
+              <p className='quote'>{item.quote}</p>
+            }
+            {item.image && 
+              <PrismicImage field={item.image}/>
+            }
           </div>
         )
       })}
