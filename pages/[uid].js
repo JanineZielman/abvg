@@ -59,8 +59,7 @@ export async function getStaticPaths() {
   return {
     paths: pages.map((page) => {
       return {
-        params: { uid: page.uid },
-        locale: page.lang,
+        params: { uid: page.uid }
       };
     }),
     fallback: false,

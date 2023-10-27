@@ -1,9 +1,8 @@
 import Head from "next/head";
-import { SliceZone, PrismicRichText, PrismicImage } from "@prismicio/react";
+import { PrismicRichText, PrismicImage } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
-import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { ThemeMenu } from "../../components/ThemeMenu";
 import Moment from 'moment';
@@ -37,11 +36,11 @@ const Page = ({ page, navigation, settings, themeMenu }) => {
             <PrismicRichText field={page.data.description}/>
           </div>
           <div className="content">
-            {item.data.content?.map((contentItem, j) => {
+            {page.data.content?.map((contentItem, j) => {
               return(
                 <>
                   <PrismicImage key={`image${j}`} field={contentItem.image}/>
-                  {contentItem.text[0] &&
+                  {contentItem.text?.[0] &&
                     <div className="text">
                       <PrismicRichText field={contentItem.text}/>
                     </div>
@@ -84,8 +83,7 @@ export async function getStaticPaths() {
   return {
     paths: pages.map((page) => {
       return {
-        params: { uid: page.uid },
-        locale: page.lang,
+        params: { uid: page.uid }
       };
     }),
     fallback: false,
