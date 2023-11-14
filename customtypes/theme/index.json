@@ -30,7 +30,7 @@
                 "label": "Sub Theme",
                 "select": "document",
                 "customtypes": [
-                  "theme"
+                  "sub_theme"
                 ]
               }
             }

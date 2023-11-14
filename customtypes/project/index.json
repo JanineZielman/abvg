@@ -50,7 +50,10 @@
         "type": "Link",
         "config": {
           "label": "Sub Theme",
-          "select": "document"
+          "select": "document",
+          "customtypes": [
+            "sub_theme"
+          ]
         }
       },
       "description": {

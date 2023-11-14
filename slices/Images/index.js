@@ -3,7 +3,6 @@ import { PrismicImage } from "@prismicio/react";
 
 
 const Images = ({ slice }) => {
-  console.log(slice)
   return(
     <section className='images'>
       {slice.items.map((item, i) => {

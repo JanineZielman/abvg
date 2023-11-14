@@ -3,7 +3,6 @@ import { PrismicRichText, PrismicImage } from '@prismicio/react'
 
 
 const Columns = ({ slice }) => {
-  console.log(slice)
   return(
     <section className='columns'>
       {slice.primary.title && <h2 className='title'>{slice.primary.title}</h2>}

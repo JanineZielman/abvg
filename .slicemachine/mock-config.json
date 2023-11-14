@@ -48,7 +48,8 @@
     "theme": {
       "sub_themes": {}
     },
-    "theme_menu": {}
+    "theme_menu": {},
+    "sub_theme": {}
   },
   "slices": {
     "Text": {

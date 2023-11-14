@@ -163,7 +163,7 @@ interface ProjectDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    sub_theme: prismicT.RelationField;
+    sub_theme: prismicT.RelationField<"sub_theme">;
     /**
      * Description field in *Project*
      *
@@ -296,6 +296,30 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
+/** Content for Sub Theme documents */
+interface SubThemeDocumentData {
+    /**
+     * Title field in *Sub Theme*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: sub_theme.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Sub Theme document from Prismic
+ *
+ * - **API ID**: `sub_theme`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SubThemeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SubThemeDocumentData>, "sub_theme", Lang>;
 /** Content for Theme Menu documents */
 interface ThemeMenuDocumentData {
     /**
@@ -391,7 +415,7 @@ export interface ThemeDocumentDataSubThemesItem {
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    sub_theme: prismicT.RelationField<"theme">;
+    sub_theme: prismicT.RelationField<"sub_theme">;
 }
 /**
  * Theme document from Prismic
@@ -403,7 +427,7 @@ export interface ThemeDocumentDataSubThemesItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type ThemeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ThemeDocumentData>, "theme", Lang>;
-export type AllDocumentTypes = NavigationDocument | PageDocument | ProjectDocument | SettingsDocument | ThemeMenuDocument | ThemeDocument;
+export type AllDocumentTypes = NavigationDocument | PageDocument | ProjectDocument | SettingsDocument | SubThemeDocument | ThemeMenuDocument | ThemeDocument;
 /**
  * Primary content in Columns → Primary
  *
@@ -582,6 +606,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataContentItem, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocument, ThemeMenuDocumentData, ThemeMenuDocumentDataThemesItem, ThemeMenuDocumentDataSlicesSlice, ThemeMenuDocument, ThemeDocumentData, ThemeDocumentDataSubThemesItem, ThemeDocument, AllDocumentTypes, ColumnsSliceDefaultPrimary, ColumnsSliceDefaultItem, ColumnsSliceDefault, ColumnsSliceVariation, ColumnsSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, ImagesSliceDefaultItem, ImagesSliceDefault, ImagesSliceVariation, ImagesSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, ProjectDocumentData, ProjectDocumentDataContentItem, ProjectDocumentDataSlicesSlice, ProjectDocument, SettingsDocumentData, SettingsDocument, SubThemeDocumentData, SubThemeDocument, ThemeMenuDocumentData, ThemeMenuDocumentDataThemesItem, ThemeMenuDocumentDataSlicesSlice, ThemeMenuDocument, ThemeDocumentData, ThemeDocumentDataSubThemesItem, ThemeDocument, AllDocumentTypes, ColumnsSliceDefaultPrimary, ColumnsSliceDefaultItem, ColumnsSliceDefault, ColumnsSliceVariation, ColumnsSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, ImagesSliceDefaultItem, ImagesSliceDefault, ImagesSliceVariation, ImagesSlice };
     }
 }
