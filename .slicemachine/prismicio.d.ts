@@ -223,6 +223,26 @@ export interface ProjectDocumentDataContentItem {
      *
      */
     text: prismicT.RichTextField;
+    /**
+     * Embed field in *Project → Content*
+     *
+     * - **Field Type**: Embed
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.content[].embed
+     * - **Documentation**: https://prismic.io/docs/core-concepts/embed
+     *
+     */
+    embed: prismicT.EmbedField;
+    /**
+     * PDF field in *Project → Content*
+     *
+     * - **Field Type**: Link to Media
+     * - **Placeholder**: *None*
+     * - **API ID Path**: project.content[].pdf
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    pdf: prismicT.LinkToMediaField;
 }
 /**
  * Slice for *Project → Slice Zone*

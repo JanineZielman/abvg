@@ -41,6 +41,13 @@ img{
   border: 1px solid $purple;
 }
 
+iframe, embed{
+  height: 85vh;
+  aspect-ratio: 16/9;
+  margin-left: 24px;
+  border: none;
+}
+
 .quote{
   font-weight: 500;
   font-style: italic;

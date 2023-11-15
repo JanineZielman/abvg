@@ -21,13 +21,20 @@ export const Projects = ({
             </div>
             <div className="content">
               {item.data.content?.map((contentItem, j) => {
+                console.log(contentItem)
                 return(
                   <>
                     <PrismicImage key={`image${j}`} field={contentItem.image}/>
                     {contentItem.text[0] &&
-                      <div className="text">
+                      <div className="text" key={`text${j}`}>
                         <PrismicRichText field={contentItem.text}/>
                       </div>
+                    }
+                    {contentItem.embed.embed_url &&
+                      <iframe src={contentItem.embed.embed_url}/>
+                    }
+                    {contentItem.pdf.url &&
+                      <embed src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${contentItem.pdf.url}`}></embed>
                     }
                   </>
                 )

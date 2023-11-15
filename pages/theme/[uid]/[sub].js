@@ -9,8 +9,8 @@ import { ThemeMenu } from "../../../components/ThemeMenu";
 import { Projects } from "../../../components/Projects";
 import Moment from 'moment';
 
-const Page = ({ page, navigation, settings, themeMenu, projects }) => {
-
+const Page = ({ page, navigation, settings, themeMenu, projects, params }) => {
+  
   return (
     <Layout
       navigation={navigation}
@@ -72,6 +72,7 @@ export async function getStaticProps({ params, previewData }) {
       themeMenu,
       projects,
       subtheme,
+      params
     },
   };
 }

@@ -88,6 +88,21 @@
                 "allowTargetBlank": true,
                 "multi": "paragraph,hyperlink,strong,em,o-list-item,list-item"
               }
+            },
+            "embed": {
+              "type": "Embed",
+              "config": {
+                "label": "Embed",
+                "placeholder": ""
+              }
+            },
+            "pdf": {
+              "type": "Link",
+              "config": {
+                "label": "PDF",
+                "placeholder": "",
+                "select": "media"
+              }
             }
           }
         }
