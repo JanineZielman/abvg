@@ -1,9 +1,15 @@
 @media only screen and (max-width: 600px) {
+  h1{
+    font-size: 36px;
+  }
+  h2{
+    font-size: 28px;
+  }
   .navigation{
     .menu{
       top: 0;
-      padding-top: 10px;
-      padding-bottom: 24px;
+      padding-top: 0px;
+      padding-bottom: 50px;
       background-color: white;
       width: 100%;
       left: 0;
@@ -81,13 +87,19 @@
   }
   .page {
     padding: 0 10px;
+    padding-bottom: 48px;
     h1{
       margin: 0;
+      font-size: 36px;
     }
     .columns{
       margin-top: 24px;
       .column{
         width: 100%;
+        img{
+          width: 100%;
+          margin: 0;
+        }
       }
     }
   }
@@ -99,6 +111,9 @@
   }
   .image-info img, .image-item img{
     width: calc(100% - 100px);
+  }
+  .spacer{
+    height: 70px;
   }
   .pageLoader{
     .title{
