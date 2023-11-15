@@ -21,7 +21,6 @@ export const Projects = ({
             </div>
             <div className="content">
               {item.data.content?.map((contentItem, j) => {
-                console.log(contentItem)
                 return(
                   <>
                     <PrismicImage key={`image${j}`} field={contentItem.image}/>

@@ -10,7 +10,7 @@ import { Projects } from "../../../components/Projects";
 import Moment from 'moment';
 
 const Page = ({ page, navigation, settings, themeMenu, projects, params }) => {
-  
+
   return (
     <Layout
       navigation={navigation}
@@ -30,8 +30,9 @@ const Page = ({ page, navigation, settings, themeMenu, projects, params }) => {
       <ThemeMenu themeMenu={themeMenu}/>
       <div className="sub-menu">
         {page.data.sub_themes.map((item,i) => {
+          let active = params.sub == item.sub_theme.uid;
           return(
-            <PrismicLink key={`subtheme${i}`} href={`/theme/${page.uid}/${item.sub_theme.uid}`}>{item.sub_theme.data?.title}</PrismicLink>
+            <PrismicLink className={`${active}`} key={`subtheme${i}`} href={`/theme/${page.uid}/${item.sub_theme.uid}`}>{item.sub_theme.data?.title}</PrismicLink>
           )
         })}
       </div>
