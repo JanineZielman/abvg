@@ -30,10 +30,10 @@ export const Projects = ({
                       </div>
                     }
                     {contentItem.embed.embed_url &&
-                      <iframe src={contentItem.embed.embed_url}/>
+                      <iframe key={`embed${j}`} src={contentItem.embed.embed_url}/>
                     }
                     {contentItem.pdf.url &&
-                      <embed src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${contentItem.pdf.url}`}></embed>
+                      <iframe key={`pdf${j}`} src={`https://docs.google.com/gview?url=${contentItem.pdf.url}&embedded=true`}></iframe>
                     }
                   </>
                 )

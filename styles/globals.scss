@@ -42,7 +42,7 @@ img{
   border: 1px solid $purple;
 }
 
-iframe, embed{
+iframe, embed, object{
   height: 85vh;
   aspect-ratio: 16/9;
   margin-left: 24px;

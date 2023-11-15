@@ -52,7 +52,7 @@
   .sub .projects{
     margin-top: 110px;
   }
-  iframe, embed{
+  iframe, embed, object{
     width: 100vw;
     height: auto;
   }
@@ -60,8 +60,8 @@
     width: 100%;
     .info{
       margin-left: 0;
-      width: 25%;
-      white-space: wrap;
+      width: 25vw;
+      white-space: wrap!important;
     }
     img{
       min-width: 70%;
