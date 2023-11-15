@@ -2,7 +2,7 @@ import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
-export const Header = ({ alternateLanguages = [], navigation, settings }) => {
+export const Header = ({ navigation, settings }) => {
 
   function toggleMenu() {
     var element = document.getElementById("navItems");

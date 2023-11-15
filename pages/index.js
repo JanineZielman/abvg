@@ -5,12 +5,10 @@ import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 import { ThemeMenu } from "../components/ThemeMenu";
 import { Projects } from "../components/Projects";
-import { PageLoader } from "../components/PageLoader";
 
 const Index = ({ navigation, settings, page, projects, themeMenu}) => {
   return (
     <Layout
-      alternateLanguages={settings.alternate_languages}
       navigation={navigation}
       settings={settings}
     >
@@ -22,7 +20,6 @@ const Index = ({ navigation, settings, page, projects, themeMenu}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <PageLoader settings={settings}/>
       <ThemeMenu themeMenu={themeMenu}/>
       <Projects projects={projects}/>
     </Layout>

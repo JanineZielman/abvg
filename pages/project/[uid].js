@@ -10,7 +10,6 @@ import Moment from 'moment';
 const Page = ({ page, navigation, settings, themeMenu }) => {
   return (
     <Layout
-      alternateLanguages={page.alternate_languages}
       navigation={navigation}
       settings={settings}
     >

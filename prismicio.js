@@ -2,8 +2,6 @@ import * as prismic from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import * as prismicNext from "@prismicio/next";
 
-import { useRouter } from 'next/router'
-
 import sm from "./sm.json";
 
 /**
@@ -21,7 +19,6 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
  * @type {prismicH.LinkResolverFunction}
  */
 export const linkResolver = (doc) => {
-  const router = useRouter()
   if (doc.type === "page") {
     if (doc.uid === "projecten") {
       return `/`;
