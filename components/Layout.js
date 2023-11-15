@@ -9,7 +9,6 @@ export const Layout = ({
   children,
 }) => {
   const router = useRouter();
-  console.log(router)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,19 +23,16 @@ export const Layout = ({
 
   return (
     <>
-      {loading ?
+      {loading &&
         <PageLoader settings={settings}/>
-      :
-        <>
-        <Header
-          navigation={navigation}
-          settings={settings}
-        />
-        <main>
-          {children}
-        </main>
-        </>
-      }
+      }   
+      <Header
+        navigation={navigation}
+        settings={settings}
+      />
+      <main>
+        {children}
+      </main>
     </>
   );
 };

@@ -17,6 +17,7 @@ body{
 
 header{
   height: 60px;
+  position: relative;
 }
 
 h1{
@@ -46,6 +47,11 @@ iframe, embed{
   aspect-ratio: 16/9;
   margin-left: 24px;
   border: none;
+}
+
+.spacer{
+  height: 40px;
+  position: relative;
 }
 
 .quote{

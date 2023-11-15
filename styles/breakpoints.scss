@@ -11,7 +11,13 @@
       img{
         width: 80px;
       }
+      .menu-icon{
+        width: 40px;
+      }
     }
+  }
+  nav{
+    width: 100vw;
   }
   .themeMenu{
     top: 30px;
@@ -19,9 +25,30 @@
     width: 100%;
     padding-left: 9px;
     a{
-      font-size: 16px;
+      font-size: 15px;
       margin: 0 5px;
     }
+  }
+  .sub-menu{
+    top: 70px;
+    justify-content: start;
+    width: 100%;
+    padding-left: 9px;
+    flex-direction: column;
+    a{
+      font-size: 14px;
+      margin: 0 5px 5px 5px;
+    }
+  }
+  .projects{
+    margin-top: 30px;
+  }
+  .sub .projects{
+    margin-top: 110px;
+  }
+  iframe, embed{
+    width: 100vw;
+    height: auto;
   }
   .project{
     width: 100%;
@@ -39,7 +66,7 @@
         width: 200%;
         min-width: 200%;
         height: 100%;
-        max-height: 85vh;
+        max-height: 70vh;
       }
       .content{
         img{

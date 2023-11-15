@@ -1,15 +1,23 @@
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import React, { useState } from 'react'
 
 export const Header = ({ navigation, settings }) => {
+  const [navActive, setNavActive] = useState(false);
 
   function toggleMenu() {
     var element = document.getElementById("navItems");
     element.classList.toggle("active");
+    if(navActive == true){
+      setNavActive(false)
+    } else {
+      setNavActive(true)
+    }
   }
 
   return (
+    <>
     <header>
       <div className="navigation">
         <div className="menu" onClick={toggleMenu}>
@@ -34,5 +42,9 @@ export const Header = ({ navigation, settings }) => {
         </nav>
       </div>
     </header>
+    {navActive &&
+      <div className="spacer"></div>
+    }
+    </>
   );
 };

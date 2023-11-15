@@ -33,7 +33,9 @@ const Page = ({ page, navigation, settings, themeMenu, projects }) => {
           )
         })}
       </div>
-      <Projects projects={projects}/>
+      <div className="sub">
+        <Projects projects={projects}/>
+      </div>
     </Layout>
   );
 };
