@@ -3,17 +3,32 @@ import { PrismicImage, PrismicRichText } from "@prismicio/react";
 export const Projects = ({
   projects
 }) => {
+  const options = { month: "long" };
   return (
     <div className="container projects">
       {projects.map((item, i) => {
         function toggle(){
           document.getElementById(item.uid).classList.toggle("active");
         }
+        let date = new Date(item.data.start_date);
+        console.log(item)
         return(
           <div key={`project${i}`} className={`project`} onClick={toggle} id={item.uid}>
             <div className="info">
               <p className="title">{item.data.title}</p>
               <p className="location">{item.data.location}</p>
+              <div className="project-info">
+                <div className="project-info-item">
+                  <span>Start</span> <p className="cap">{new Intl.DateTimeFormat("nl-NL", options).format(date)} {date.getFullYear()}</p>
+                </div>
+                {item.data.project_info.map((info,k) => {
+                  return(
+                    <div className="project-info-item">
+                      <span>{info.label}</span> <p>{info.text}</p>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
             <PrismicImage field={item.data.image}/>
             <div className="description">

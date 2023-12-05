@@ -9,6 +9,7 @@ $small: 14px;
 body{
   color: $purple;
   font-family: 'Gill Sans';
+  font-size: $body;
 }
 
 *{
@@ -36,6 +37,10 @@ p{
 a{
   text-decoration: none;
   color: inherit;
+}
+
+.cap{
+  text-transform: capitalize;
 }
 
 img{
@@ -201,6 +206,24 @@ nav{
   .location{
     font-weight: 100;
   }
+  .project-info{
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    .project-info-item{
+      display: flex;
+      flex-direction: column;
+      margin-top: 14px;
+      span{
+        font-weight: 100;
+        font-size: $small;
+      }
+      p{
+        // font-weight: 500;
+        font-size: $body;
+      }
+    }
+  }
   img{
     width: 500px;
     min-width: 500px;
@@ -220,6 +243,10 @@ nav{
       object-fit: cover;
       display: inline-block;
     }
+    .project-info{
+      display: block;
+      opacity: 1;
+    }
     .description{
       display: inline-block;
       width: 300px;
@@ -236,6 +263,7 @@ nav{
       align-content:flex-start;
       img{
         width: 100%;
+        min-width: 30vw;
         height: auto;
         max-height: 85vh;
         display: inline-block;
