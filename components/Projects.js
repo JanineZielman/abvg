@@ -17,9 +17,11 @@ export const Projects = ({
               <p className="title">{item.data.title}</p>
               <p className="location">{item.data.location}</p>
               <div className="project-info">
-                <div className="project-info-item">
-                  <span>Start</span> <p className="cap">{new Intl.DateTimeFormat("nl-NL", options).format(date)} {date.getFullYear()}</p>
-                </div>
+                {item.data.start_date &&
+                  <div className="project-info-item">
+                    <span>Start</span> <p className="cap">{new Intl.DateTimeFormat("nl-NL", options).format(date)} {date.getFullYear()}</p>
+                  </div>
+                }
                 {item.data.project_info.map((info,k) => {
                   return(
                     <div className="project-info-item" key={`project-info-item${i}`}>
