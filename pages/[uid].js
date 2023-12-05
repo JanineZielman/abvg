@@ -5,7 +5,6 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../prismicio";
 import { components } from "../slices";
 import { Layout } from "../components/Layout";
-import Moment from 'moment';
 
 const Page = ({ page, navigation, settings }) => {
   return (

@@ -7,7 +7,6 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import { ThemeMenu } from "../../components/ThemeMenu";
 import { Projects } from "../../components/Projects";
-import Moment from 'moment';
 
 const Page = ({ page, navigation, settings, themeMenu, projects }) => {
   return (

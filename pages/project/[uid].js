@@ -5,7 +5,6 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { Layout } from "../../components/Layout";
 import { ThemeMenu } from "../../components/ThemeMenu";
-import Moment from 'moment';
 
 const Page = ({ page, navigation, settings, themeMenu }) => {
   const options = { month: "long" };

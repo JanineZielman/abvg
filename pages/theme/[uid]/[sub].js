@@ -7,10 +7,10 @@ import { components } from "../../../slices";
 import { Layout } from "../../../components/Layout";
 import { ThemeMenu } from "../../../components/ThemeMenu";
 import { Projects } from "../../../components/Projects";
-import Moment from 'moment';
 
 const Page = ({ page, navigation, settings, themeMenu, projects, params }) => {
 
+  console.log(params)
   return (
     <Layout
       navigation={navigation}
@@ -45,7 +45,7 @@ const Page = ({ page, navigation, settings, themeMenu, projects, params }) => {
 
 export default Page;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getServerSideProps({ params, previewData }) {
 
   const client = createClient({ previewData });
   const prismic = require("@prismicio/client");
@@ -81,29 +81,5 @@ export async function getStaticProps({ params, previewData }) {
       subtheme,
       params
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const client = createClient();
-  const subthemes = await client.getAllByType("sub_theme");
-  const themes = await client.getAllByType("theme");
-
-
-  return {
-    paths: subthemes.map((subtheme) => {
-      const res = themes.filter(theme => 
-        theme.data.sub_themes.some(sub => 
-            sub.sub_theme.uid == subtheme.uid
-        )
-      )
-      return {
-        params: { 
-          uid: res[0].uid,
-          sub: subtheme.uid,
-        },
-      };
-    }),
-    fallback: false,
   };
 }
