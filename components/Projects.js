@@ -11,7 +11,6 @@ export const Projects = ({
           document.getElementById(item.uid).classList.toggle("active");
         }
         let date = new Date(item.data.start_date);
-        console.log(item)
         return(
           <div key={`project${i}`} className={`project`} onClick={toggle} id={item.uid}>
             <div className="info">
@@ -23,7 +22,7 @@ export const Projects = ({
                 </div>
                 {item.data.project_info.map((info,k) => {
                   return(
-                    <div className="project-info-item">
+                    <div className="project-info-item" key={`project-info-item${i}`}>
                       <span>{info.label}</span> <p>{info.text}</p>
                     </div>
                   )

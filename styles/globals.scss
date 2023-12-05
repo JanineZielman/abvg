@@ -214,12 +214,13 @@ nav{
       display: flex;
       flex-direction: column;
       margin-top: 14px;
+      width: 300px;
+      max-width: 50vw;
       span{
         font-weight: 100;
         font-size: $small;
       }
       p{
-        // font-weight: 500;
         font-size: $body;
       }
     }
@@ -246,11 +247,12 @@ nav{
     .project-info{
       display: block;
       opacity: 1;
+      white-space: wrap;
     }
     .description{
       display: inline-block;
-      width: 300px;
-      min-width: 300px;
+      width: 400px;
+      min-width: 400px;
       white-space: initial;
       margin-left: 24px;
       p{

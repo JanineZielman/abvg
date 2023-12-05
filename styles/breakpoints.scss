@@ -76,12 +76,19 @@
     width: 100%;
     .info{
       margin-left: 0;
-      width: 25vw;
+      width: 50vw;
       white-space: wrap!important;
     }
     img{
       min-width: 70%;
       width: 70%;
+    }
+    .project-info{
+      .project-info-item{
+        p{
+          font-size: 16px;
+        }
+      }
     }
     &.active{
       img{
@@ -89,6 +96,10 @@
         min-width: 200%;
         height: 100%;
         max-height: 70vh;
+      }
+      .description{
+        min-width: 95vw;
+        width: 95vw;
       }
       .content{
         img{

@@ -59,6 +59,10 @@ export async function getStaticProps({ params, previewData }) {
         page.id
       ),
     ],
+    orderings: {
+			field: 'my.project.start_date',
+			direction: 'desc',
+		},
   });
 
   return {

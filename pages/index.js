@@ -33,10 +33,10 @@ export async function getStaticProps({ previewData }) {
   const prismic = require("@prismicio/client");
 
   const projects = await client.getAllByType("project", { 
-    // orderings: {
-		// 	field: 'my.event.date',
-		// 	direction: 'asc',
-		// },
+    orderings: {
+			field: 'my.project.start_date',
+			direction: 'desc',
+		},
   });
   const themeMenu = await client.getSingle("theme_menu");
   const navigation = await client.getSingle("navigation");

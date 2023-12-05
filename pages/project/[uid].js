@@ -8,6 +8,8 @@ import { ThemeMenu } from "../../components/ThemeMenu";
 import Moment from 'moment';
 
 const Page = ({ page, navigation, settings, themeMenu }) => {
+  const options = { month: "long" };
+  let date = new Date(page.data.start_date);
   return (
     <Layout
       navigation={navigation}
@@ -25,30 +27,48 @@ const Page = ({ page, navigation, settings, themeMenu }) => {
       </Head>
       <ThemeMenu themeMenu={themeMenu}/>
       <div className={`container projects`}>
-        <div className={`project active`}>
-          <div className="info">
-            <p className="title">{page.data.title}</p>
-            <p className="location">{page.data.location}</p>
-          </div>
-          <PrismicImage field={page.data.image}/>
-          <div className="description">
-            <PrismicRichText field={page.data.description}/>
-          </div>
-          <div className="content">
-            {page.data.content?.map((contentItem, j) => {
-              return(
-                <>
-                  <PrismicImage key={`image${j}`} field={contentItem.image}/>
-                  {contentItem.text?.[0] &&
-                    <div className="text">
-                      <PrismicRichText field={contentItem.text}/>
+      <div className={`project active`}>
+            <div className="info">
+              <p className="title">{page.data.title}</p>
+              <p className="location">{page.data.location}</p>
+              <div className="project-info">
+                <div className="project-info-item">
+                  <span>Start</span> <p className="cap">{new Intl.DateTimeFormat("nl-NL", options).format(date)} {date.getFullYear()}</p>
+                </div>
+                {page.data.project_info.map((info,k) => {
+                  return(
+                    <div className="project-info-item" key={`project-info-item${k}`}>
+                      <span>{info.label}</span> <p>{info.text}</p>
                     </div>
-                  }
-                </>
-              )
-            })}
+                  )
+                })}
+              </div>
+            </div>
+            <PrismicImage field={page.data.image}/>
+            <div className="description">
+              <PrismicRichText field={page.data.description}/>
+            </div>
+            <div className="content">
+              {page.data.content?.map((contentItem, j) => {
+                return(
+                  <>
+                    <PrismicImage key={`image${j}`} field={contentItem.image}/>
+                    {contentItem.text[0] &&
+                      <div className="text" key={`text${j}`}>
+                        <PrismicRichText field={contentItem.text}/>
+                      </div>
+                    }
+                    {contentItem.embed.embed_url &&
+                      <iframe key={`embed${j}`} src={contentItem.embed.embed_url}/>
+                    }
+                    {contentItem.pdf.url &&
+                      <iframe key={`pdf${j}`} src={`https://docs.google.com/gview?url=${contentItem.pdf.url}&embedded=true`}></iframe>
+                    }
+                  </>
+                )
+              })}
+            </div>
           </div>
-        </div>
       </div>
     </Layout>
   );
