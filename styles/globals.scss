@@ -216,12 +216,14 @@ nav{
       margin-top: 14px;
       width: 300px;
       max-width: 50vw;
+      white-space: normal;
       span{
         font-weight: 100;
         font-size: $small;
       }
       p{
         font-size: $body;
+        white-space: normal;
       }
     }
   }
@@ -247,7 +249,7 @@ nav{
     .project-info{
       display: block;
       opacity: 1;
-      white-space: wrap;
+      white-space: normal;
     }
     .description{
       display: inline-block;
